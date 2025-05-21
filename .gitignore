@@ -1,0 +1,12 @@
+# Laravel
+/backend/vendor/
+/backend/storage/*.key
+/backend/.env
+
+# Vue
+/frontend/app/node_modules/
+/frontend/app/dist/
+/frontend/app/.env
+
+# Docker
+docker/db_data/
