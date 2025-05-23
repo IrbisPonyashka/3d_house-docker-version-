@@ -33,7 +33,7 @@ class UserController extends Controller
                 'name' => 'Neel',
                 'age' => 21,
                 'mail' => 'neel@gmail.com',
-            ],
+            ]
         ]);
     }
 }
