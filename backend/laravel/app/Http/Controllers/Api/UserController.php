@@ -34,6 +34,12 @@ class UserController extends Controller
                 'age' => 21,
                 'mail' => 'neel@gmail.com',
             ],
+            [
+                'id' => 5,
+                'name' => 'Admin',
+                'age' => 0,
+                'mail' => 'admin@gmail.com',
+            ],
         ]);
     }
 }
