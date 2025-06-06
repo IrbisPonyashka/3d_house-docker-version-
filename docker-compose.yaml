@@ -1,8 +1,8 @@
 services:
   app:
     build:
-      context: ./backend
-      dockerfile: docker/dockerfiles/laravel/Dockerfile
+      context: ./backend/laravel
+      dockerfile: ../../docker/dockerfiles/laravel/Dockerfile
     image: laravel-app
     container_name: laravel-app
     volumes:
@@ -36,16 +36,18 @@ services:
 
   frontend:
     build:
-      context: ./frontend/app
-      dockerfile: ../../docker/dockerfiles/vue/Dockerfile
-    container_name: vue-app
+      context: .
+      dockerfile: docker/dockerfiles/nuxt/Dockerfile
+    container_name: nuxt-app
     volumes:
-      - ./frontend/app:/app
+      - ./frontend:/app:delegated
+      - /app/node_modules
     ports:
-      - 5173:5173
+      - 7000:7000
     command: sh -c "npm install && npm run dev -- --host"
     networks:
       - laravel
+    restart: always
 
 #  php:
 #    build:
