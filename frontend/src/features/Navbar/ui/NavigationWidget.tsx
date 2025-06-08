@@ -3,7 +3,7 @@ import { Link,   } from "@/i18n/navigation"
 import { useLocale, useTranslations } from "next-intl"
 import { getNavigationLinks } from "../lib/getNavigationLinks";
 import { Menu, X } from "lucide-react";
-import { IconButton } from "@/shared/ui/icon-button";
+import { IconButton } from "@/shared/components/ui/icon-button";
 import { useState } from "react";
 
 export function Navbar(){
@@ -13,7 +13,7 @@ export function Navbar(){
     const [isNavbarActive, setNavbarActive] = useState(false)
     return(
         <div className="navbar">
-        <nav className="navbar-desktop border-b-1 border-white hidden lg:block">
+        <nav className="navbar-desktop border-b-1 border-white hidden lg:block fixed w-full  bg-background top-0 left-0">
             <div className="navbar-content container mx-auto px-4 my-3 flex items-center justify-between">
             <Link href='/' locale={locale}  className="uppercase font-semibold">3 Devor</Link>
             <div className="navbar-actions">
@@ -52,9 +52,7 @@ export function Navbar(){
             }}>
                 <Menu />
             </IconButton>
-            {
-            isNavbarActive? (
-            <div className="fixed  px-4 flex justify-center items-center flex-col  h-full left-0 top-0 w-full bg-background mobile-navbar-menu">
+            <div className={`fixed  px-4 flex justify-center items-center flex-col  h-full transition-all duration-500 top-0 w-full bg-background mobile-navbar-menu  ${isNavbarActive ? 'right-0' : '-right-full'}`}>
                 <div className="navbar-menu-content flex flex-col items-center gap-32">
             <button
               onClick={() => {
@@ -88,7 +86,7 @@ export function Navbar(){
                     )}
                 </ul>
                 </div>
-          </div>):""}
+          </div>
             </div>
         </nav>
         </div>
