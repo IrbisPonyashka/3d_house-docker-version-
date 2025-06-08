@@ -2,19 +2,29 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #141A1F;
+  --primary: #3D99F5;
+  --primary-light: #f2fffc;
+  --primary-dark: #133150;
+  --alert: #ff4c5b;
+  --disabled: #93a8c8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-alert: var(--alert);
+  --color-disabled: var(--disabled);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #141A1F;
     --foreground: #ededed;
   }
 }
