@@ -3,7 +3,7 @@ import '@/app/globals.css';
 import { notFound } from "next/navigation";
 import {routing} from "../../i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import {Navbar} from "@/features/Navbar"
+import {Navbar} from "@/features/navbar"
 
 export const metadata:Metadata = {
   title: '3 Devor',
