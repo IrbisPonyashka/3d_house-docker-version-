@@ -1,30 +1,27 @@
-import type { Metadata } from "next";
-import '@/app/globals.css';
-import { notFound } from "next/navigation";
-import {routing} from "../../i18n/routing";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import {Navbar} from "@/features/navbar"
+// app/[locale]/layout.tsx
+import { ReactNode } from 'react';
+import { notFound } from 'next/navigation';
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
+import { routing } from '@/i18n/routing';
+import { Navigation } from '@/widgets/Navigation';
 
-export const metadata:Metadata = {
-  title: '3 Devor',
-  description:'Платформа по поиску жилья'
-}
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
   params,
-}:{children:React.ReactNode, params:Promise<{locale: string}>}){
-  const {locale} = await params;
+}: {
+  children: ReactNode;
+  params:Promise<{locale: string}>
+}) {
+  const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
   return (
-    <html lang={locale}>
-      <body >
-    <NextIntlClientProvider>
-      <Navbar />
+    <NextIntlClientProvider locale={locale}>
+      <Navigation />
       {children}
     </NextIntlClientProvider>
-      </body>
-    </html>
-  )
+  );
 }
