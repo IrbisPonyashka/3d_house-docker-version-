@@ -10,7 +10,8 @@ const mockProperties: Property[] = [
   {
     id: 1,
     name: "Жилой комплекс Tashkent City",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=300&fit=crop",
+        modelLink:'https://threejs.org/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf',
+
     location: {
       city: "Ташкент",
       district: "Чиланзарский район"
@@ -28,7 +29,8 @@ const mockProperties: Property[] = [
   {
     id: 2,
     name: "Комплекс Samarkand Gardens",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=300&fit=crop",
+        modelLink:'',
+
     location: {
       city: "Самарканд",
       district: "Центральный район"
@@ -45,7 +47,7 @@ const mockProperties: Property[] = [
   {
     id: 3,
     name: "Oasis Residence",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=300&fit=crop",
+    modelLink:'',
     location: {
       city: "Ташкент",
       district: "Мирзо-Улугбекский район"
@@ -63,7 +65,8 @@ const mockProperties: Property[] = [
   {
     id: 4,
     name: "Bukhara Premium",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=300&fit=crop",
+        modelLink:'',
+
     location: {
       city: "Бухара",
       district: "Центр"
@@ -80,7 +83,8 @@ const mockProperties: Property[] = [
   {
     id: 5,
     name: "Nukus Modern",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=300&fit=crop",
+        modelLink:'',
+
     location: {
       city: "Нукус",
       district: "Новый город"
@@ -98,7 +102,8 @@ const mockProperties: Property[] = [
   {
     id: 6,
     name: "Fergana Valley Heights",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=400&h=300&fit=crop",
+        modelLink:'',
+
     location: {
       city: "Фергана",
       district: "Центральный"

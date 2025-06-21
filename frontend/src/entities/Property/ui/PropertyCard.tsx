@@ -4,20 +4,21 @@ import { MapPin } from 'lucide-react';
 import { Property } from '../model/types';
 import { getStatusInfo, formatPrice } from '../../../shared/lib/utils';
 import { Button } from '../../../shared/ui/Button/Button';
+import { ModelViewer } from '@/entities/Model-viewer';
 
 interface PropertyCardProps {
   property: Property;
   onDetailsClick?: (id: number) => void;
 }
 
-export const PropertyCard: React.FC<PropertyCardProps> = ({ 
-  property, 
-  onDetailsClick 
+export const PropertyCard: React.FC<PropertyCardProps> = ({
+  property,
+  onDetailsClick
 }) => {
   const {
     id,
     name,
-    image,
+    modelLink,
     location,
     areaRange,
     priceFrom,
@@ -36,12 +37,8 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
   return (
     <div className="property-card group bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700">
       {/* Изображение */}
-      <div className="relative h-48 overflow-hidden">
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
+      <div className="relative h-100 overflow-hidden">
+        <ModelViewer modelUrl={modelLink}/>
         <div className="absolute top-3 left-3">
           <span className={`px-2 py-1 rounded-full text-xs font-medium ${statusInfo.color}`}>
             {statusInfo.text}
