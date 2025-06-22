@@ -1,10 +1,9 @@
-'use client';
-
 import React, { useState } from 'react';
-import { FilterBar } from '@/features/PropertyFilters';
-import { PropertyCard } from '@/entities/Property';
-import { Button } from '@/shared/ui/Button/Button';
-import { Property, PropertyFilters } from '@/shared/types/property';
+import { Navigation } from '../../../widgets/Navigation';
+import { FilterBar } from '../../../features/PropertyFilters';
+import { PropertyCard } from '../../../entities/Property';
+import { Property, PropertyFilters } from '../../../shared/types/property';
+import { Button } from '../../../shared/ui/Button/Button';
 
 const mockProperties: Property[] = [
   {
@@ -115,7 +114,7 @@ const mockProperties: Property[] = [
   }
 ];
 
-const HomePage: React.FC = () => {
+export const HomePage: React.FC = () => {
   const [filters, setFilters] = useState<PropertyFilters>({});
 
   const handlePropertyDetails = (id: number) => {
@@ -124,9 +123,9 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* <Navigation /> */}
+      <Navigation />
       <FilterBar filters={filters} onFiltersChange={setFilters} />
-
+      
       {/* Герой секция */}
       <section className="uzbek-pattern bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 py-16">
         <div className="container mx-auto px-4 text-center">
@@ -151,12 +150,27 @@ const HomePage: React.FC = () => {
       <section className="py-12 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {/* ... */}
+            <div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">150+</div>
+              <div className="text-gray-600 dark:text-gray-400">Жилых комплексов</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">8</div>
+              <div className="text-gray-600 dark:text-gray-400">Городов</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">15000+</div>
+              <div className="text-gray-600 dark:text-gray-400">Довольных клиентов</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">5</div>
+              <div className="text-gray-600 dark:text-gray-400">Лет на рынке</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Каталог */}
+      {/* Каталог жилых комплексов */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -171,8 +185,8 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {mockProperties.map((property) => (
               <div key={property.id} className="animate-fade-in">
-                <PropertyCard
-                  property={property}
+                <PropertyCard 
+                  property={property} 
                   onDetailsClick={handlePropertyDetails}
                 />
               </div>
@@ -195,7 +209,7 @@ const HomePage: React.FC = () => {
               Почему выбирают нас
             </h2>
           </div>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
               <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -204,7 +218,7 @@ const HomePage: React.FC = () => {
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Проверенные застройщики</h3>
               <p className="text-gray-600 dark:text-gray-400">Работаем только с надежными компанями с хорошей репутацией</p>
             </div>
-
+            
             <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
               <div className="w-16 h-16 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-white text-2xl">🏠</span>
@@ -212,7 +226,7 @@ const HomePage: React.FC = () => {
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Лучшие локации</h3>
               <p className="text-gray-600 dark:text-gray-400">Жилые комплексы в развитых районах с хорошей инфраструктурой</p>
             </div>
-
+            
             <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
               <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-white text-2xl">💼</span>
@@ -239,7 +253,7 @@ const HomePage: React.FC = () => {
                 Ведущая платформа недвижимости Узбекистана
               </p>
             </div>
-
+            
             <div>
               <h4 className="font-semibold mb-4">Каталог</h4>
               <ul className="space-y-2 text-gray-400">
@@ -248,7 +262,7 @@ const HomePage: React.FC = () => {
                 <li><a href="#" className="hover:text-white transition-colors">Коммерческая</a></li>
               </ul>
             </div>
-
+            
             <div>
               <h4 className="font-semibold mb-4">Города</h4>
               <ul className="space-y-2 text-gray-400">
@@ -258,24 +272,22 @@ const HomePage: React.FC = () => {
                 <li><a href="#" className="hover:text-white transition-colors">Все города</a></li>
               </ul>
             </div>
-
+            
             <div>
               <h4 className="font-semibold mb-4">Контакты</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>+998 33 509 48 56</li>
+                <li>+998 90 123 45 67</li>
                 <li>info@3devol.uz</li>
                 <li>Ташкент, ул. Амира Темура, 1</li>
               </ul>
             </div>
           </div>
-
+          
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 3Devol.uz. Все права защищены.</p>
+            <p>&copy; 2024 3Devol.uz. Все права защищены.</p>
           </div>
         </div>
       </footer>
     </div>
   );
 };
-
-export default HomePage;
