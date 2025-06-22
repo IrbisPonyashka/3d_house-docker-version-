@@ -14,7 +14,7 @@ export type PropertyStatus = 'ready' | 'construction' | 'planned';
 export interface Property {
   id: number;
   name: string;
-  image: string;
+  modelLink:string,
   location: Location;
   areaRange: AreaRange;
   priceFrom: number;
